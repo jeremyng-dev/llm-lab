@@ -32,6 +32,7 @@ class WikiTextDataset:
         ds = ds.filter(lambda x: bool(x["text"] and x["text"].strip()))
         all_text = "\n".join(ds["text"])
         token_ids = tokenizer.encode(all_text)
+        self.total_tokens = len(token_ids)
 
         self.input_ids = []
         self.target_ids = []
